@@ -1,0 +1,10 @@
+---
+title: Self-Hosted Runner
+description: Run nolapse on a self-hosted GitHub Actions runner.
+---
+
+Run nolapse on a self-hosted GitHub Actions runner.
+
+:::caution[Coming soon]
+This page is under construction. Content will be added as part of the nolapse-docs story ([#56](https://github.com/nolapse-dev/nolapse-platform/issues/56)).
+:::

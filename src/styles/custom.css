@@ -1,0 +1,31 @@
+/* Nolapse brand tokens — generated from assets/brand-palette.md */
+/* Replace with the output of the brand design system story (#57) */
+:root {
+  --nl-primary:        #2563eb;
+  --nl-accent:         #7c3aed;
+  --nl-bg-darkest:     #0f172a;
+  --nl-bg-dark:        #1e293b;
+  --nl-bg-light:       #f8fafc;
+  --nl-text-primary:   #f8fafc;
+  --nl-text-secondary: #94a3b8;
+  --nl-border:         #334155;
+  --nl-font-body:      'Inter', system-ui, sans-serif;
+  --nl-font-mono:      'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Map Nolapse tokens → Starlight CSS variables */
+:root {
+  --sl-color-accent:      var(--nl-primary);
+  --sl-color-accent-high: var(--nl-accent);
+  --sl-color-white:       var(--nl-text-primary);
+  --sl-color-gray-1:      var(--nl-text-secondary);
+  --sl-color-black:       var(--nl-bg-darkest);
+  --sl-font:              var(--nl-font-body);
+  --sl-font-mono:         var(--nl-font-mono);
+}
+
+/* Code blocks */
+.expressive-code pre {
+  background: var(--nl-bg-dark) !important;
+  border: 1px solid var(--nl-border);
+}

@@ -1,0 +1,10 @@
+---
+title: nolapse doctor
+description: 10-check pre-flight diagnostic — what each check means and how to fix failures.
+---
+
+10-check pre-flight diagnostic — what each check means and how to fix failures.
+
+:::caution[Coming soon]
+This page is under construction. Content will be added as part of the nolapse-docs story ([#56](https://github.com/nolapse-dev/nolapse-platform/issues/56)).
+:::
