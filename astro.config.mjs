@@ -12,7 +12,7 @@ export default defineConfig({
         dark: './src/assets/nolapse-logo-dark.svg',
         replacesTitle: true,
       },
-      customCss: ['./src/styles/custom.css'],
+      customCss: ['./src/styles/custom.css', './src/styles/design-tokens.css'],
       editLink: {
         baseUrl: 'https://github.com/nolapse-dev/nolapse-docs/edit/main/',
       },
