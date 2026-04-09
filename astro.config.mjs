@@ -8,7 +8,7 @@ export default defineConfig({
       title: 'Nolapse Docs',
       description: 'Git-native coverage enforcement — CLI, GitHub Action, and platform API.',
       customCss: ['./src/styles/design-tokens.css', './src/styles/custom.css'],
-      favicon: { href: '/favicon.svg', type: 'image/svg+xml' },
+      favicon: '/favicon.svg',
       logo: {
         src: './public/wordmark-dark.svg',
         alt: 'Nolapse',
