@@ -1,31 +1,62 @@
-/* Nolapse brand tokens — generated from assets/brand-palette.md */
-/* Replace with the output of the brand design system story (#57) */
+/* Nolapse → Starlight theme bridge.
+ * Maps --nl-* tokens to Starlight's --sl-* custom properties.
+ * Must load AFTER design-tokens.css.
+ */
+
+/* ── Starlight core color overrides ───────────────────────── */
 :root {
-  --nl-primary:        #2563eb;
-  --nl-accent:         #7c3aed;
-  --nl-bg-darkest:     #0f172a;
-  --nl-bg-dark:        #1e293b;
-  --nl-bg-light:       #f8fafc;
-  --nl-text-primary:   #f8fafc;
-  --nl-text-secondary: #94a3b8;
-  --nl-border:         #334155;
-  --nl-font-body:      'Inter', system-ui, sans-serif;
-  --nl-font-mono:      'JetBrains Mono', 'Fira Code', monospace;
+  /* Accent: Starlight uses accent for sidebar active item, links */
+  --sl-color-accent-low:  #0F2D1E;   /* nl-success-bg — dark accent bg */
+  --sl-color-accent:      #0F6E56;   /* nl-brand — primary teal */
+  --sl-color-accent-high: #5DCAA5;   /* nl-brand-light — high contrast accent */
+
+  /* Text */
+  --sl-color-white:       #E6EDF3;   /* nl-text-primary */
+  --sl-color-gray-1:      #8B949E;   /* nl-text-secondary */
+  --sl-color-gray-2:      #484F58;   /* nl-text-tertiary */
+  --sl-color-gray-3:      #21262D;   /* nl-bg-mid */
+  --sl-color-gray-4:      #161B22;   /* nl-bg-dark */
+  --sl-color-gray-5:      #0D1117;   /* nl-bg-darkest */
+  --sl-color-gray-6:      #0D1117;   /* nl-bg-darkest (same) */
+  --sl-color-black:       #0D1117;   /* nl-bg-darkest */
+
+  /* Typography */
+  --sl-font:              'DM Sans', 'Inter', system-ui, sans-serif;
+  --sl-font-mono:         'JetBrains Mono', 'Fira Code', monospace;
 }
 
-/* Map Nolapse tokens → Starlight CSS variables */
-:root {
-  --sl-color-accent:      var(--nl-primary);
-  --sl-color-accent-high: var(--nl-accent);
-  --sl-color-white:       var(--nl-text-primary);
-  --sl-color-gray-1:      var(--nl-text-secondary);
-  --sl-color-black:       var(--nl-bg-darkest);
-  --sl-font:              var(--nl-font-body);
-  --sl-font-mono:         var(--nl-font-mono);
-}
-
-/* Code blocks */
+/* ── Code blocks ───────────────────────────────────────────── */
 .expressive-code pre {
-  background: var(--nl-bg-dark) !important;
-  border: 1px solid var(--nl-border);
+  background:  #161B22 !important;   /* nl-bg-dark */
+  border:      1px solid #21262D;    /* nl-border-default */
+  border-radius: 0.5rem;
+}
+
+/* ── Sidebar active item highlight ─────────────────────────── */
+[data-theme="dark"] .sidebar-item[aria-current="page"] {
+  background:  #0F2D1E;             /* nl-success-bg */
+  color:       #5DCAA5;             /* nl-brand-light */
+  border-left: 2px solid #0F6E56;  /* nl-brand */
+}
+
+/* ── Inline links ───────────────────────────────────────────── */
+.sl-markdown-content a {
+  color: #1D9E75;                   /* nl-brand-dark */
+}
+.sl-markdown-content a:hover {
+  color: #0F6E56;                   /* nl-brand */
+}
+
+/* ── Admonition / note / warning / danger ───────────────────── */
+.starlight-aside--note {
+  border-color: #0F6E56;            /* nl-brand */
+  background:   #0F2D1E;            /* nl-success-bg */
+}
+.starlight-aside--caution {
+  border-color: #BA7517;            /* nl-amber-dark */
+  background:   #2D1A06;            /* nl-warning-bg */
+}
+.starlight-aside--danger {
+  border-color: #CF4040;            /* nl-status-fail */
+  background:   #2D0F0F;            /* nl-error-bg */
 }
