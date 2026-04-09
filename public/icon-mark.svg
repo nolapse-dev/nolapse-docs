@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="76" viewBox="0 0 72 76">
+  <defs>
+    <clipPath id="tri">
+      <polygon points="36,6 65,62 7,62"/>
+    </clipPath>
+  </defs>
+  <!-- Layer 4 (bottom): no baseline — gray -->
+  <rect x="0" y="49" width="72" height="14" fill="#555555" clip-path="url(#tri)"/>
+  <!-- Gap -->
+  <rect x="0" y="47" width="72" height="2"  fill="transparent" clip-path="url(#tri)"/>
+  <!-- Layer 3: regression — red -->
+  <rect x="0" y="35" width="72" height="12" fill="#CF4040" clip-path="url(#tri)"/>
+  <!-- Gap -->
+  <rect x="0" y="33" width="72" height="2"  fill="transparent" clip-path="url(#tri)"/>
+  <!-- Layer 2: warn — amber -->
+  <rect x="0" y="21" width="72" height="12" fill="#BA7517" clip-path="url(#tri)"/>
+  <!-- Gap -->
+  <rect x="0" y="19" width="72" height="2"  fill="transparent" clip-path="url(#tri)"/>
+  <!-- Layer 1 (top): governed — green -->
+  <rect x="0" y="6"  width="72" height="13" fill="#1D9E75" clip-path="url(#tri)"/>
+  <!-- Outline -->
+  <polygon points="36,6 65,62 7,62" fill="none" stroke="#EF9F27" stroke-width="3.5" stroke-linejoin="round"/>
+  <!-- Baseline floor -->
+  <rect x="5" y="65" width="62" height="5" rx="2.5" fill="#1D9E75"/>
+</svg>

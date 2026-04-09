@@ -7,7 +7,13 @@ export default defineConfig({
     starlight({
       title: 'Nolapse Docs',
       description: 'Git-native coverage enforcement — CLI, GitHub Action, and platform API.',
-      customCss: ['./src/styles/custom.css', './src/styles/design-tokens.css'],
+      customCss: ['./src/styles/design-tokens.css', './src/styles/custom.css'],
+      favicon: { href: '/favicon.svg', type: 'image/svg+xml' },
+      logo: {
+        src: './public/wordmark-dark.svg',
+        alt: 'Nolapse',
+        replacesTitle: true,
+      },
       editLink: {
         baseUrl: 'https://github.com/nolapse-dev/nolapse-docs/edit/main/',
       },
