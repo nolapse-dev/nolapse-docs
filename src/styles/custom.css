@@ -65,14 +65,22 @@
 }
 
 /* ── Search bar text visibility ────────────────────────────── */
-[data-theme="dark"] .search input,
-[data-theme="dark"] input[placeholder="Search"] {
+[data-theme="dark"] .pagefind-ui__search-input {
   color: #0D1117 !important;
+  background-color: #F4F3EE !important;
 }
 
-[data-theme="light"] .search input,
-[data-theme="light"] input[placeholder="Search"] {
+[data-theme="dark"] .pagefind-ui__search-input::placeholder {
+  color: #8B949E !important;
+}
+
+[data-theme="light"] .pagefind-ui__search-input {
   color: #E6EDF3 !important;
+  background-color: #161B22 !important;
+}
+
+[data-theme="light"] .pagefind-ui__search-input::placeholder {
+  color: #484F58 !important;
 }
 
 /* ── Logo theme switching ──────────────────────────────────── */
