@@ -39,6 +39,12 @@
   border-left: 2px solid #0F6E56;  /* nl-brand */
 }
 
+[data-theme="light"] .sidebar-item[aria-current="page"] {
+  background:  #E1F5EE;             /* nl-brand-ghost */
+  color:       #0F6E56;             /* nl-brand */
+  border-left: 2px solid #0F6E56;  /* nl-brand */
+}
+
 /* ── Inline links ───────────────────────────────────────────── */
 .sl-markdown-content a {
   color: #1D9E75;                   /* nl-brand-dark */
@@ -59,4 +65,44 @@
 .starlight-aside--danger {
   border-color: #CF4040;            /* nl-status-fail */
   background:   #2D0F0F;            /* nl-error-bg */
+}
+
+/* ── Light theme color overrides ────────────────────────────── */
+[data-theme="light"] {
+  /* Text - swap to dark colors for light mode */
+  --sl-color-white:       #0D1117;  /* nl-bg-darkest → dark text */
+  --sl-color-gray-1:      #21262D;  /* nl-bg-mid → darker secondary */
+  --sl-color-gray-2:      #484F58;  /* nl-text-tertiary → keep */
+  --sl-color-gray-3:      #8B949E;  /* nl-text-secondary → lighter tertiary */
+  --sl-color-gray-4:      #D0D7DE;  /* nl-border-light → very light */
+  --sl-color-gray-5:      #EAEEF2;  /* light gray */
+  --sl-color-gray-6:      #F4F3EE;  /* nl-bg-light */
+
+  /* Code blocks - use light background for light mode */
+  --sl-color-black:       #F4F3EE;  /* nl-bg-light */
+}
+
+[data-theme="light"] .expressive-code pre {
+  background:  #FAFAF8 !important;  /* nl-bg-lighter */
+  border:      1px solid #D0D7DE;   /* nl-border-light */
+}
+
+[data-theme="light"] .sl-markdown-content a {
+  color: #0F6E56;                   /* nl-brand */
+}
+[data-theme="light"] .sl-markdown-content a:hover {
+  color: #1D9E75;                   /* nl-brand-dark */
+}
+
+[data-theme="light"] .starlight-aside--note {
+  border-color: #0F6E56;            /* nl-brand */
+  background:   #E1F5EE;            /* nl-brand-ghost */
+}
+[data-theme="light"] .starlight-aside--caution {
+  border-color: #BA7517;            /* nl-amber-dark */
+  background:   #FAEEDA;            /* nl-amber-pale */
+}
+[data-theme="light"] .starlight-aside--danger {
+  border-color: #CF4040;            /* nl-status-fail */
+  background:   #FDEAEA;            /* light error background */
 }
