@@ -65,22 +65,37 @@
 }
 
 /* ── Search bar text visibility ────────────────────────────── */
-[data-theme="dark"] .pagefind-ui__search-input {
+[data-theme="dark"] input[class*="pagefind"],
+[data-theme="dark"] input[class*="search"] {
   color: #484F58 !important;
   background-color: #F4F3EE !important;
 }
 
-[data-theme="dark"] .pagefind-ui__search-input::placeholder {
+[data-theme="dark"] input[class*="pagefind"]::placeholder,
+[data-theme="dark"] input[class*="search"]::placeholder {
   color: #8B949E !important;
 }
 
-[data-theme="light"] .pagefind-ui__search-input {
+[data-theme="light"] input[class*="pagefind"],
+[data-theme="light"] input[class*="search"] {
   color: #0D1117 !important;
   background-color: #FAFAF8 !important;
 }
 
-[data-theme="light"] .pagefind-ui__search-input::placeholder {
+[data-theme="light"] input[class*="pagefind"]::placeholder,
+[data-theme="light"] input[class*="search"]::placeholder {
   color: #484F58 !important;
+}
+
+/* Fallback for any input in search-related containers */
+[data-theme="dark"] .search-container input {
+  color: #484F58 !important;
+  background-color: #F4F3EE !important;
+}
+
+[data-theme="light"] .search-container input {
+  color: #0D1117 !important;
+  background-color: #FAFAF8 !important;
 }
 
 /* ── Logo theme switching ──────────────────────────────────── */
