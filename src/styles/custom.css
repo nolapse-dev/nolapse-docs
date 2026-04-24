@@ -49,18 +49,8 @@
   color: #0D1117 !important;
 }
 
-[data-theme="dark"] .header a,
-[data-theme="dark"] .header button {
-  color: #0D1117 !important;
-}
-
 [data-theme="light"] .header {
   background-color: #0D1117 !important;
-  color: #E6EDF3 !important;
-}
-
-[data-theme="light"] .header a,
-[data-theme="light"] .header button {
   color: #E6EDF3 !important;
 }
 
