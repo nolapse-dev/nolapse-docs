@@ -64,6 +64,27 @@
   color: #E6EDF3 !important;
 }
 
+/* ── Logo theme switching ──────────────────────────────────── */
+.logo {
+  position: relative;
+  display: inline-block;
+}
+
+[data-theme="light"] .logo img {
+  display: none;
+}
+
+[data-theme="light"] .logo::after {
+  content: '';
+  display: block;
+  width: 220px;
+  height: 48px;
+  background-image: url('/wordmark-light.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
 /* ── Sidebar active item highlight ─────────────────────────── */
 [data-theme="dark"] .sidebar-item[aria-current="page"] {
   background:  #0F2D1E;             /* nl-success-bg */
