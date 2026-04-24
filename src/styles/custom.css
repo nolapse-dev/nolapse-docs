@@ -98,6 +98,23 @@
   background-color: #FAFAF8 !important;
 }
 
+/* Override header light text rule for search inputs */
+[data-theme="light"] .header input,
+[data-theme="light"] .header input[class*="search"],
+[data-theme="light"] .header input[class*="pagefind"],
+[data-theme="light"] site-search input {
+  color: #0D1117 !important;
+  background-color: #FAFAF8 !important;
+}
+
+[data-theme="dark"] .header input,
+[data-theme="dark"] .header input[class*="search"],
+[data-theme="dark"] .header input[class*="pagefind"],
+[data-theme="dark"] site-search input {
+  color: #484F58 !important;
+  background-color: #F4F3EE !important;
+}
+
 /* ── Logo theme switching ──────────────────────────────────── */
 .logo {
   position: relative;
