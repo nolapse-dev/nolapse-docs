@@ -25,11 +25,43 @@
   --sl-font-mono:         'JetBrains Mono', 'Fira Code', monospace;
 }
 
+/* ── Header / Navigation bar ───────────────────────────────── */
+[data-theme="dark"] {
+  --sl-color-bg-nav:      #F4F3EE;   /* light bg for dark mode nav */
+  --sl-color-text-nav:    #0D1117;   /* dark text for dark mode nav */
+}
+
+[data-theme="light"] {
+  --sl-color-bg-nav:      #0D1117;   /* dark bg for light mode nav */
+  --sl-color-text-nav:    #E6EDF3;   /* light text for light mode nav */
+}
+
 /* ── Code blocks ───────────────────────────────────────────── */
 .expressive-code pre {
   background:  #161B22 !important;   /* nl-bg-dark */
   border:      1px solid #21262D;    /* nl-border-default */
   border-radius: 0.5rem;
+}
+
+/* ── Header styling ────────────────────────────────────────── */
+[data-theme="dark"] .header {
+  background-color: #F4F3EE !important;
+  color: #0D1117 !important;
+}
+
+[data-theme="dark"] .header a,
+[data-theme="dark"] .header button {
+  color: #0D1117 !important;
+}
+
+[data-theme="light"] .header {
+  background-color: #0D1117 !important;
+  color: #E6EDF3 !important;
+}
+
+[data-theme="light"] .header a,
+[data-theme="light"] .header button {
+  color: #E6EDF3 !important;
 }
 
 /* ── Sidebar active item highlight ─────────────────────────── */
