@@ -66,7 +66,7 @@
 
 /* ── Search bar text visibility ────────────────────────────── */
 [data-theme="dark"] .pagefind-ui__search-input {
-  color: #0D1117 !important;
+  color: #484F58 !important;
   background-color: #F4F3EE !important;
 }
 
@@ -75,8 +75,8 @@
 }
 
 [data-theme="light"] .pagefind-ui__search-input {
-  color: #E6EDF3 !important;
-  background-color: #161B22 !important;
+  color: #0D1117 !important;
+  background-color: #FAFAF8 !important;
 }
 
 [data-theme="light"] .pagefind-ui__search-input::placeholder {
