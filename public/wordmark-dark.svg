@@ -15,5 +15,5 @@
   <polygon points="20,3 38,36 2,36" fill="none" stroke="#EF9F27" stroke-width="2" stroke-linejoin="round"/>
   <rect x="2" y="39" width="36" height="3" rx="1.5" fill="#1D9E75"/>
   <!-- Wordmark text -->
-  <text x="50" y="33" font-family="monospace" font-size="28" font-weight="800" fill="#E6EDF3" letter-spacing="-0.5">nolapse</text>
+  <text x="50" y="33" font-family="monospace" font-size="28" font-weight="800" fill="#6E757D" letter-spacing="-0.5">nolapse</text>
 </svg>

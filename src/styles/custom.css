@@ -64,6 +64,17 @@
   color: #E6EDF3 !important;
 }
 
+/* ── Search bar text visibility ────────────────────────────── */
+[data-theme="dark"] .search input,
+[data-theme="dark"] input[placeholder="Search"] {
+  color: #0D1117 !important;
+}
+
+[data-theme="light"] .search input,
+[data-theme="light"] input[placeholder="Search"] {
+  color: #E6EDF3 !important;
+}
+
 /* ── Logo theme switching ──────────────────────────────────── */
 .logo {
   position: relative;
