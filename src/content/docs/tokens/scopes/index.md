@@ -5,9 +5,6 @@ description: Available nolapse token scopes, what each one permits, and how scop
 
 Token scopes define what a token is allowed to do. Scopes are set when a token is created and cannot be changed afterwards — to change scopes, create a new token with the desired permissions and revoke the old one.
 
-:::note[Planned feature — story #34]
-Token management (including scope assignment) is part of the token management API tracked as story #34. The endpoints described on this page are not yet live.
-:::
 
 ## Available scopes
 

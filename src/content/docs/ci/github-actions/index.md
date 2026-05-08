@@ -78,13 +78,14 @@ Your `nolapse.yaml` must contain `lang: python` for the runner to be selected.
 | Input | Required | Type | Default | Description |
 | --- | --- | --- | --- | --- |
 | `repo-token` | yes | string | — | GitHub token with `checks: write` scope. Use `${{ secrets.GITHUB_TOKEN }}`. |
-| `warn-threshold` | no | string | `1.0` | Coverage drop (in percentage points) that triggers a warning. Passed as `--warn-threshold` to the CLI. |
-| `fail-threshold` | no | string | `5.0` | Coverage drop that causes the action to exit non-zero and fail the workflow. |
+| `nolapse-token` | no | string | — | nolapse platform token (`nlp_…`) for authenticated runs. When provided, the action validates the token before running; an invalid or revoked token causes the job to fail immediately. |
+| `warn-threshold` | no | string | `1.0` | Coverage drop (in percentage points) that triggers a warning. |
+| `fail-threshold` | no | string | `5.0` | Coverage drop (in percentage points) that causes the action to exit non-zero and fail the workflow. |
 | `strict-mode` | no | string | `false` | Set to `'true'` to fail on any negative delta regardless of thresholds. |
 | `pr-number` | no | string | — | Pull request number. When provided, the action posts a coverage-delta comment to the PR. Obtain with `${{ github.event.pull_request.number }}`. |
 | `coverage-table` | no | string | `false` | Set to `'true'` to include a per-package breakdown table in the PR comment. |
 
-Threshold inputs are strings (GitHub Actions does not have a native float type) and are passed through to the CLI unchanged. Use decimal notation: `'1.5'`, not `1.5`.
+Threshold inputs are strings (GitHub Actions does not have a native float type). Both integers and decimals are accepted: `'1'`, `'0.5'`, `'2.5'`. Values must be between `0` and `100`. Inputs containing shell metacharacters or extra flags (e.g. `'5 --extra'`) are rejected with a workflow error to prevent injection attacks.
 
 ## What the action does
 

@@ -47,26 +47,34 @@ All routes share:
 
 | Middleware | Behaviour |
 | --- | --- |
-| CORS | `Access-Control-Allow-Origin: *` on every response |
+| CORS | `Access-Control-Allow-Origin` echoed only for origins in `ALLOWED_ORIGINS` env var (comma-separated). Unknown origins receive no CORS headers. `Vary: Origin` is always set. |
 | Request ID | `X-Request-ID` header injected on every response |
 | Logger | Structured access log line per request |
+
+Self-hosted deployments must set `ALLOWED_ORIGINS` to the origin(s) of their dashboard and any other browser clients. See [Deployment Configuration](/reference/security-model/) for details.
 
 ---
 
 ## Endpoint Index
 
-| Method | Path | Description | Status |
-| --- | --- | --- | --- |
-| `GET` | `/health` | Liveness check — returns `{"status":"ok"}` | **Live** |
-| `POST` | `/v1/auth/validate` | Validate a token, return org and scopes | Planned — story #34 |
-| `GET` | `/v1/tokens` | List tokens for the authenticated org | Planned — story #34 |
-| `POST` | `/v1/tokens` | Create a new token | Planned — story #34 |
-| `POST` | `/v1/tokens/{id}/rotate` | Rotate a token with a grace period | Planned — story #34 |
-| `DELETE` | `/v1/tokens/{id}` | Revoke a token | Planned — story #34 |
-| `GET` | `/v1/badge/{org}/{repo}` | Return an SVG coverage badge | Planned — story #44 |
-| `GET` | `/v1/executions` | List execution records for a repo | Planned — story #47 |
+| Method | Path | Auth | Description | Status |
+| --- | --- | --- | --- | --- |
+| `GET` | `/health` | None | Liveness check — returns `{"status":"ok"}` | **Live** |
+| `POST` | `/v1/sessions/create` | SERVICE_TOKEN | Create a session (called by nolapse-web only) | **Live** |
+| `DELETE` | `/v1/sessions/{id}` | None | Delete a session (logout) | **Live** |
+| `POST` | `/v1/auth/validate` | None (token in body) | Validate a token, return org and scopes | **Live** |
+| `GET` | `/v1/tokens` | Session | List tokens for the authenticated org | **Live** |
+| `POST` | `/v1/tokens` | Session | Create a new token | **Live** |
+| `POST` | `/v1/tokens/{id}/rotate` | Session | Rotate a token | **Live** |
+| `DELETE` | `/v1/tokens/{id}` | Session | Revoke a token | **Live** |
+| `PATCH` | `/v1/tokens/{id}` | Session | Update token agent_type | **Live** |
+| `GET` | `/v1/analytics` | Session (paid plan) | Analytics data | **Live** |
+| `GET` | `/v1/badge/{org}/{repo}` | None | Return an SVG coverage badge | Planned — story #44 |
+| `GET` | `/v1/executions` | None | List execution records for a repo | Planned — story #47 |
+| `POST` | `/webhooks/stripe` | Stripe-Signature | Receive Stripe webhook events | **Live** |
+| `POST` | `/webhooks/razorpay` | X-Razorpay-Signature | Receive Razorpay webhook events | **Live** |
 
-Unimplemented endpoints return `501 Not Implemented`.
+Unimplemented endpoints return `501 Not Implemented`. All session-protected endpoints return `401` when the `Authorization: Bearer <session-token>` header is absent or the session has expired.
 
 ---
 

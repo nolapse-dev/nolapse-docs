@@ -233,8 +233,53 @@ This is required for accurate commit SHAs in `baseline.md` and for `nolapse base
 
 ---
 
+---
+
+## 9. API returns "internal error" with HTTP 500
+
+**Symptom:** An API call returns `{"error":"internal error"}` (or plain text `internal error`) with status `500`.
+
+**Cause:** The platform encountered an unexpected infrastructure error — most commonly a database connection issue, a constraint violation, or a failed store operation. The error body is intentionally opaque; details are in the server logs.
+
+**Fix:**
+
+1. Check the server logs for a line matching `[sessions]`, `[tokens]`, `[organisations]`, or `[users]` with the error detail.
+2. Verify `DATABASE_URL` is correct and the database is reachable.
+3. If running locally, ensure the database schema is up to date (the server runs migrations on startup — check for migration errors in startup logs).
+
+---
+
+## 10. Browser API requests blocked by CORS
+
+**Symptom:** Browser console shows `CORS error` or `blocked by CORS policy` when the dashboard makes API requests to `nolapse-api`.
+
+**Cause (self-hosted):** The `ALLOWED_ORIGINS` environment variable is not set, is empty, or does not match the exact origin of the dashboard (scheme + host + port).
+
+**Fix:**
+
+1. Find your dashboard's exact origin — it is the scheme + hostname + port shown in the browser address bar, without a trailing slash. Example: `https://app.example.com` or `http://localhost:3000`.
+2. Set `ALLOWED_ORIGINS` in `nolapse-api`'s environment:
+
+```bash
+ALLOWED_ORIGINS=https://app.example.com
+```
+
+Multiple origins (e.g. dashboard + admin):
+
+```bash
+ALLOWED_ORIGINS=https://app.example.com,https://admin.example.com
+```
+
+3. Restart `nolapse-api`.
+4. Verify: open the browser DevTools Network tab, make the failing request, and confirm the `Access-Control-Allow-Origin` response header is set.
+
+See [Security Model — CORS policy](/reference/security-model/#cors-policy) for full configuration details.
+
+---
+
 ## See Also
 
 - [nolapse doctor](/doctor/) — planned automated diagnostic command
 - [Exit Codes](/reference/exit-codes/) — full table of all exit codes
 - [nolapse.yaml Reference](/config/nolapse-yaml/) — configuration schema
+- [Security Model](/reference/security-model/) — CORS, token storage, audit logging

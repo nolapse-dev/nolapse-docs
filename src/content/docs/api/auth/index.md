@@ -39,13 +39,14 @@ No `Authorization` header is required — the token to validate is passed in the
 A valid nolapse token has the following structure:
 
 ```text
-nlp_<40 alphanumeric characters>
+nlp_<40 lowercase hex characters>
 ```
 
 - Total length: 44 characters (`nlp_` prefix + 40-character body)
-- The 40-character body contains only `[A-Za-z0-9]` — no hyphens, underscores, or special characters
-- Tokens are generated server-side using a cryptographically secure random generator
-- The prefix `nlp_` allows secret-scanning tools (e.g. GitHub Secret Scanning) to detect accidentally committed tokens
+- The body is 40 lowercase hexadecimal characters (`[0-9a-f]`) — no uppercase, hyphens, underscores, or other special characters
+- The first 32 hex chars encode the token's UUID (primary key for O(1) database lookup); the trailing 8 hex chars are random entropy
+- Tokens are generated server-side using a cryptographically secure random generator; the raw value is shown exactly once at creation and is never stored — only a bcrypt hash (cost 12) is kept
+- The `nlp_` prefix allows secret-scanning tools (e.g. GitHub Secret Scanning) to detect accidentally committed tokens
 
 A request body where `token` is missing or is not a string returns `400`. A request body where the token string is syntactically valid but not recognised by the server returns `401`.
 

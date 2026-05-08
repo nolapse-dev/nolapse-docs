@@ -5,9 +5,6 @@ description: How nolapse token rotation works — grace period, status transitio
 
 Token rotation lets you replace an active token without any window of downtime. During the rotation grace period, both the old and new tokens are accepted, giving you time to update all consumers before the old token is revoked.
 
-:::note[Planned feature — story #34]
-Token rotation is part of the token management API tracked as story #34. The endpoints described on this page are not yet live.
-:::
 
 ## Why rotate tokens
 
@@ -34,16 +31,16 @@ POST /v1/tokens/{id}/rotate
 Authorization: Bearer <session-token>
 ```
 
-A successful response returns the **new token value** — this is the only time it is shown:
+A successful `200 OK` response returns the **new token value** — this is the only time it is shown:
 
 ```json
 {
-  "new_token": "nlp_xY9zA1bC3dE5fG7hJ0kL2mN4pQ6rS8tU1vW3xY",
-  "old_token_id": "tok_abc123",
-  "old_token_status": "rotating",
-  "grace_period_ends_at": "2026-03-19T14:00:00Z"
+  "id": "7f53283a-3e39-4b29-937a-33d0194ff180",
+  "secret": "nlp_7f53283a3e394b29937a33d0194ff1809e2d1a0f"
 }
 ```
+
+Store the `secret` value immediately. It cannot be retrieved again.
 
 Store the new token value immediately. It cannot be retrieved again.
 
