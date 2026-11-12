@@ -6,7 +6,7 @@ description: What nolapse API tokens are, when you need them, and what to expect
 nolapse API tokens authenticate requests to the nolapse platform. They are required when integrating nolapse's cloud features with CI — for example, when pushing coverage results to the platform or triggering remote enforcement checks.
 
 :::note[Token management dashboard]
-The token management dashboard at `/admin` (story #46) is still in progress. Tokens can be managed via the API endpoints described on this page.
+Sign in and open `/dashboard` to create, rotate and revoke tokens. The secret is shown once, when a token is created or rotated, so copy it then. You can also manage tokens with the API endpoints described on this page.
 :::
 
 ## When you need a token
