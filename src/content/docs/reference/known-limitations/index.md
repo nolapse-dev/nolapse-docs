@@ -9,10 +9,6 @@ This page documents known limitations in the current release — behaviours that
 
 ## Token management
 
-### No token management dashboard yet
-
-The `/admin` dashboard UI for creating and revoking tokens (story #46) is not yet live. Token management requires direct API calls or the CLI. See [Token Setup](/tokens/setup/).
-
 ### Token rotation grace period — fixed duration
 
 Token rotation (`POST /v1/tokens/{id}/rotate`) immediately deactivates the old token; there is no configurable grace period in the current implementation. Both the old and new token are valid only during a brief in-process window. If you need overlap, create a second token before revoking the first.
