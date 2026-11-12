@@ -105,7 +105,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run nolapse
-        uses: nolapse/nolapse-action@v1
+        uses: nolapse-dev/nolapse-action@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           warn-threshold: "0.5"

@@ -41,14 +41,14 @@ jobs:
           fetch-depth: 0
 
       - name: Run nolapse
-        uses: nolapse/nolapse-action@v1
+        uses: nolapse-dev/nolapse-action@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           warn-threshold: "0.5"
           fail-threshold: "1.0"
 ```
 
-The `nolapse/nolapse-action@v1` action installs the nolapse binary automatically if it is not already on `PATH`. The action requires Go to be available on the runner for the install step.
+The `nolapse-dev/nolapse-action@v1` action installs the nolapse binary automatically if it is not already on `PATH`. The action requires Go to be available on the runner for the install step.
 
 ---
 
@@ -109,7 +109,7 @@ jobs:
         run: pip install -r requirements.txt pytest pytest-cov
 
       - name: Run nolapse
-        uses: nolapse/nolapse-action@v1
+        uses: nolapse-dev/nolapse-action@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           lang: python
@@ -127,7 +127,7 @@ If the runner has no outbound internet access:
 
 1. Download the nolapse binary on a machine with internet access and transfer it to the runner.
 2. Place the binary in a directory on the runner's `PATH`.
-3. Use the direct `run: nolapse run ...` step instead of `uses: nolapse/nolapse-action@v1` (the action tries to fetch the latest version on startup).
+3. Use the direct `run: nolapse run ...` step instead of `uses: nolapse-dev/nolapse-action@v1` (the action tries to fetch the latest version on startup).
 4. nolapse's core gate functionality (read baseline, run tests, compare, exit code) works entirely offline. Cloud features (badge, executions API) require network access to `api.nolapse.dev`.
 
 ---
