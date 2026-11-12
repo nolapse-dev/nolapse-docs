@@ -89,7 +89,7 @@ jobs:
         run: dotnet build
 
       - name: Run nolapse
-        uses: nolapse/nolapse-action@v1
+        uses: nolapse-dev/nolapse-action@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           lang: dotnet

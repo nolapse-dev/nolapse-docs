@@ -136,7 +136,7 @@ strict_mode: false
 
 ### GitHub Action
 
-The `nolapse/nolapse-action@v1` GitHub Action wraps the CLI for pull request workflows. Features in this release:
+The `nolapse-dev/nolapse-action@v1` GitHub Action wraps the CLI for pull request workflows. Features in this release:
 
 - Runs `nolapse run` against the checked-out repository.
 - Posts a coverage table as a PR comment (opt-in via `coverage-table` input).
@@ -147,7 +147,7 @@ The `nolapse/nolapse-action@v1` GitHub Action wraps the CLI for pull request wor
 Minimum workflow example:
 
 ```yaml
-- uses: nolapse/nolapse-action@v1
+- uses: nolapse-dev/nolapse-action@v1
   with:
     repo-token: ${{ secrets.GITHUB_TOKEN }}
 ```

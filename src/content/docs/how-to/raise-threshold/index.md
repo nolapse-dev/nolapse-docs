@@ -86,7 +86,7 @@ In a GitHub Actions workflow, you can pass thresholds as action inputs:
 
 ```yaml
 - name: Run nolapse (release gate)
-  uses: nolapse/nolapse-action@v1
+  uses: nolapse-dev/nolapse-action@v1
   with:
     repo-token: ${{ secrets.GITHUB_TOKEN }}
     warn-threshold: "0.0"

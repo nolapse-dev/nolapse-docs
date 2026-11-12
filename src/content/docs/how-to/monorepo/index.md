@@ -104,7 +104,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run nolapse — ${{ matrix.repo }}
-        uses: nolapse/nolapse-action@v1
+        uses: nolapse-dev/nolapse-action@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo: ${{ matrix.repo }}

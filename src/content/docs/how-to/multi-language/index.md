@@ -74,7 +74,7 @@ jobs:
           go-version: "1.22"
 
       - name: Run nolapse (Go)
-        uses: nolapse/nolapse-action@v1
+        uses: nolapse-dev/nolapse-action@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo: services/go-svc
@@ -98,7 +98,7 @@ jobs:
         run: pip install -r services/py-svc/requirements.txt pytest pytest-cov
 
       - name: Run nolapse (Python)
-        uses: nolapse/nolapse-action@v1
+        uses: nolapse-dev/nolapse-action@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo: services/py-svc

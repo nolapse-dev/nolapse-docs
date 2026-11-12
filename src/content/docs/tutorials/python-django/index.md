@@ -251,7 +251,7 @@ jobs:
         run: pip install django pytest pytest-cov pytest-django
 
       - name: Run nolapse
-        uses: nolapse/nolapse-action@v1
+        uses: nolapse-dev/nolapse-action@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           lang: python
