@@ -29,6 +29,7 @@ export default defineConfig({
             { label: 'Install', link: '/install/' },
             { label: 'First Baseline', link: '/first-baseline/' },
             { label: 'First Enforcement', link: '/first-enforcement/' },
+            { label: 'For Platform and DevOps Teams', link: '/for-platform-teams/' },
           ],
         },
         {
